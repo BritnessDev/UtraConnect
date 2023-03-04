@@ -21,6 +21,7 @@ import AnalyticsScratchpadChecklist from "./AnalyticsScratchpadChecklist";
 import AnalyticsTotalHours from "./AnalyticsTotalHours";
 import AnalyticsTrafficChannels from "./AnalyticsTrafficChannels";
 import AnalyticsValue from "./AnalyticsValue";
+import ContactManagementHeader from "./ContactManagementHeader";
 import CRMCompaniesCards from "./CRMCompaniesCards";
 import CRMCompaniesHeader from "./CRMCompaniesHeader";
 import CRMCompaniesTable from "./CRMCompaniesTable";
@@ -133,6 +134,7 @@ export {
     AnalyticsTotalHours,
     AnalyticsTrafficChannels,
     AnalyticsValue,
+    ContactManagementHeader,
     CRMCompaniesCards,
     CRMCompaniesHeader,
     CRMCompaniesTable,

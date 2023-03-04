@@ -1,27 +1,35 @@
 export default {
     base: {
-        children: ["office"],
+        children: ["contact", "documents"],
         id: "base",
     },
 
-    office: {
+    contact: {
         icon: "folder",
-        id: "office",
-        title: "office",
-        children: ["contact", "documents"],
+        id: "contact",
+        title: "Contact",
+        children: ["addressbook", "contactmanagement"],
     },
 
-    contact: {
+    addressbook: {
         icon: "user",
-        id: "contact",
-        title: "contact",
+        id: "contact-list",
+        title: "Address Book",
         url: "/address-list",
+    },
+
+    contactmanagement: {
+        icon: "file-text",
+        id: "contact_management",
+        title: "Contact Management",
+        url: "/contact-add"
     },
 
     documents: {
         icon: "file-text",
         id: "documents",
-        title: "documents",
+        title: "Documents",
         url: "/document-list",
     },
+
 };
