@@ -1,4 +1,5 @@
 import '../styles/theme.scss';
+import '../styles/theme/_style.scss'
 
 import Head from 'next/head';
 import { useRouter } from 'next/router';
