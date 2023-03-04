@@ -1,9 +1,8 @@
 import FeatherIcon from 'feather-icons-react';
-import NumberFormat from 'react-number-format';
-import { Button, Alert, InputGroup, Form, Col, Container, Row } from 'react-bootstrap';
-import { Flatpickr, Select } from '../components/vendor';
+import { Button, InputGroup, Form, Col, Container, Row } from 'react-bootstrap';
+import { Select } from '../components/vendor';
 import TextareaAutosize from 'react-textarea-autosize';
-import { AccountApiUsage, AccountCurrentPlan, ContactManagementHeader, AccountInvoices, AccountPaymentMethods } from '../widgets';
+import { ContactManagementHeader } from '../widgets';
 import TelephoneInput from '../components/TelephoneInput';
 import { useState } from 'react'
 

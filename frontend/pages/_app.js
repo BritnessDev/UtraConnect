@@ -8,6 +8,7 @@ import SSRProvider from 'react-bootstrap/SSRProvider';
 import { Provider } from 'react-redux'
 import store from '../store'
 
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const authPages = [
