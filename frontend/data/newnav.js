@@ -1,6 +1,6 @@
 export default {
     base: {
-        children: ["contact", "documents"],
+        children: ["contact", "documents", "datacollection"],
         id: "base",
     },
 
@@ -31,5 +31,10 @@ export default {
         title: "Documents",
         url: "/document-list",
     },
-
+    datacollection: {
+        icon: "file-text",
+        id: "datacollection",
+        title: "Data Collection",
+        url: "/add-pdf",
+    },
 };
