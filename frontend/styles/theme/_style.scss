@@ -9,3 +9,25 @@
     padding: 0;
     width: auto !important;
 }
+
+.language-switcher {
+    position: absolute;
+    z-index: 99999; 
+    top: 30px; 
+    right: 30px;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .language-switcher {
+        top: 11px; 
+        right: 80px;
+    }
+    .language-switcher span {
+        display: none;
+    }
+
+    .language-switcher img {
+        width: 15px;
+    }
+}
