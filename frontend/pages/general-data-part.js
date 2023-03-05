@@ -120,10 +120,10 @@ export default function GeneralDataPart ({pdfData, setPdfData}) {
                         <div className="form-group">
                         <Form.Label htmlFor="vehicle-model-customer">{getMessage('is_the_vehicle_owned_financed_or_leased')}</Form.Label>
                         <Form.Control as="select" id="vehicleOwner" value={pdfData.general?.vehicleOwner} onChange={onChangeHandler}>
-                            <option value="unknown">unknown</option>
-                            <option value="financed">financed</option>
-                            <option value="leased">leased</option>
-                            <option value="owned">owned</option>
+                            <option value="unknown">{getMessage('unknown')}</option>
+                            <option value="financed">{getMessage('financed')}</option>
+                            <option value="leased">{getMessage('leased')}</option>
+                            <option value="owned">{getMessage('owned')}</option>
                         </Form.Control>
                         </div>
                     </Col>
@@ -132,19 +132,19 @@ export default function GeneralDataPart ({pdfData, setPdfData}) {
                 <Row className="mt-3">
                     <Col xs={12} md={6} xl={4}>
                         <div className="form-group">
-                            <Form.Check type="switch" id="knowOtherAddress" label="Address of the other party known?" value={pdfData.general?.knowOtherAddress} onChange={onChangeHandler} />
+                            <Form.Check type="switch" id="knowOtherAddress" label={getMessage('addressof_other_party_known')} value={pdfData.general?.knowOtherAddress} onChange={onChangeHandler} />
                         </div>
                     </Col>
 
                     <Col xs={12} md={6} xl={4}>
                         <div className="form-group">
-                            <Form.Check type="switch" id="knowOtherInsurer" label="Insurer of the polluter known?" value={pdfData.general?.knowOtherInsurer} onChange={onChangeHandler} />
+                            <Form.Check type="switch" id="knowOtherInsurer" label={getMessage('insurer_polluter_known')} value={pdfData.general?.knowOtherInsurer} onChange={onChangeHandler} />
                         </div>
                     </Col>
 
                     <Col xs={12} md={6} xl={4}>
                         <div className="form-group">
-                            <Form.Check type="switch" id="needLawyer" label="Want a lawyer?" value={pdfData.general?.needLawyer} onChange={onChangeHandler} />
+                            <Form.Check type="switch" id="needLawyer" label={getMessage('want_lawyer')} value={pdfData.general?.needLawyer} onChange={onChangeHandler} />
                         </div>
                     </Col>
                 </Row>
@@ -152,7 +152,7 @@ export default function GeneralDataPart ({pdfData, setPdfData}) {
                 <Row className='mt-3'>
                     <Col xs={12} md={6} xl={4}>
                         <div className="form-group">
-                            <Form.Check type="switch" id="repairIntended" label="Repair intended?" value={pdfData.general?.repairIntended} onChange={onChangeHandler} />
+                            <Form.Check type="switch" id="repairIntended" label={getMessage('Repair intended')} value={pdfData.general?.repairIntended} onChange={onChangeHandler} />
                         </div>
                     </Col>
                 </Row>
