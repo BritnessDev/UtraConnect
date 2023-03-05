@@ -1,7 +1,6 @@
 import className from "classnames";
 import FeatherIcon from "feather-icons-react";
 import React, { useMemo, useState } from "react";
-import { ModalContacts } from '../modals';
 
 import {
     Alert,
@@ -25,6 +24,7 @@ import {
     useTable,
 } from "react-table";
 import { IndeterminateCheckbox, Select } from "../components/vendor";
+import { getMessage } from "../helpers/lang";
 
 export default function AddressListTable({
     deals,
@@ -55,39 +55,39 @@ export default function AddressListTable({
                 ),
             },
             {
-                Header: "Name",
+                Header: getMessage("Name"),
                 accessor: "name",
             },
             {
-                Header: "Type of contact",
+                Header: getMessage("Type of contact"),
                 accessor: "contact",
             },
             {
-                Header: "Zip Code",
+                Header: getMessage("Zip Code"),
                 accessor: "zip",
             },
             {
-                Header: "City",
+                Header: getMessage("City"),
                 accessor: "city",
             },
             {
-                Header: "Phone",
+                Header: getMessage("Phone"),
                 accessor: "phone",
             },
             {
-                Header: "Email",
+                Header: getMessage("Email"),
                 accessor: "email",
             },
             {
-                Header: "Person",
+                Header: getMessage("Person"),
                 accessor: "person",
             },
             {
-                Header: "Created on",
+                Header: getMessage("Created on"),
                 accessor: "created",
             },
             {
-                Header: "Modified on",
+                Header: getMessage("Modified on"),
                 accessor: "modified",
             },
             {
@@ -103,8 +103,8 @@ export default function AddressListTable({
                             <FeatherIcon icon="more-vertical" size="17" />
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#!">Edit</Dropdown.Item>
-                            <Dropdown.Item href="#!">Delete</Dropdown.Item>
+                            <Dropdown.Item href="#!">{getMessage('Edit')}</Dropdown.Item>
+                            <Dropdown.Item href="#!">{getMessage('Delete')}</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 ),
@@ -173,7 +173,7 @@ export default function AddressListTable({
                                         label: "type 2",
                                     },
                                 ]}
-                                placeholder="Type of contact"
+                                placeholder={getMessage("Type of contact")}
                                 layout="flush"
                                 size="sm"
                                 className="btn btn-white btn-sm"
@@ -185,7 +185,7 @@ export default function AddressListTable({
                                 layout="flush"
                                 size="sm"
                                 className="btn btn-white btn-sm"
-                                placeholder="Select the page size"
+                                placeholder={getMessage('Select the page size')}
                             />
                         </Col>
                         <Col xs="auto">
@@ -196,12 +196,12 @@ export default function AddressListTable({
                                         icon="plus"
                                         size="1em"
                                     />{" "}
-                                    New
+                                    {getMessage('New')}
                                 </Button>
                                 <Dropdown.Menu>
                                     <Card.Header>
                                         <h4 className="card-header-title">
-                                            Filters
+                                            {getMessage('Filters')}
                                         </h4>
                                     </Card.Header>
                                     <Card.Body>
@@ -209,7 +209,7 @@ export default function AddressListTable({
                                             <ListGroup.Item>
                                                 <Row>
                                                     <Col>
-                                                        <small>Title</small>
+                                                        <small>{getMessage('Title')}</small>
                                                     </Col>
                                                     <Col xs="auto">
                                                         <Select
@@ -225,7 +225,7 @@ export default function AddressListTable({
                                                 <Row>
                                                     <Col>
                                                         <small>
-                                                            Lead score
+                                                            {getMessage('Lead score')}
                                                         </small>
                                                     </Col>
                                                     <Col xs="auto">
@@ -240,7 +240,7 @@ export default function AddressListTable({
                                             </ListGroup.Item>
                                         </ListGroup>
                                         <Button className="w-100">
-                                            Apply filter
+                                            {getMessage('Apply filter')}
                                         </Button>
                                     </Card.Body>
                                 </Dropdown.Menu>
@@ -318,7 +318,7 @@ export default function AddressListTable({
                                 size="1em"
                                 className="me-1"
                             />{" "}
-                            Prev
+                            {getMessage('Prev')}
                         </Pagination.Item>
                     </Pagination>
                     <Pagination className="card-pagination pagination-tabs">
@@ -338,7 +338,7 @@ export default function AddressListTable({
                             disabled={!canNextPage}
                             onClick={() => nextPage()}
                         >
-                            Next{" "}
+                            {getMessage('Next')}{" "}
                             <FeatherIcon
                                 icon="arrow-right"
                                 size="1em"
@@ -366,14 +366,14 @@ export default function AddressListTable({
                         </Col>
                         <Col xs="auto" className="me-n3">
                             <Button variant="white-20" size="sm">
-                                Edit
+                                {getMessage('Edit')}
                             </Button>
                             <Button
                                 variant="white-20"
                                 size="sm"
                                 className="ms-1"
                             >
-                                Delete
+                                {getMessage('Delete')}
                             </Button>
                         </Col>
                     </Row>
@@ -381,7 +381,6 @@ export default function AddressListTable({
                 </Alert>
             )}
             <div id="modals" {...props}>
-            <ModalContacts visible={modalMembersVisible} onDismiss={() => setModalMembersVisible(false)} />
       
     </div>
         </div>

@@ -13,6 +13,7 @@ import {
 } from "react-bootstrap";
 import { Avatar, Icon } from "../components";
 import { newnav as data } from "../data";
+import { getMessage } from "../helpers/lang";
 import { ModalNotifications, ModalSearch } from "../modals";
 
 export default function NewSidenav({ ...props }) {
@@ -163,14 +164,14 @@ export default function NewSidenav({ ...props }) {
             </Dropdown.Toggle>
             <Dropdown.Menu>
                 <Dropdown.Item as={Link} href="/profile-posts">
-                    Profile
+                    {getMessage('Profile')}
                 </Dropdown.Item>
                 <Dropdown.Item as={Link} href="/account-general">
-                    Settings
+                    {getMessage('Settings')}
                 </Dropdown.Item>
                 <Dropdown.Divider />
                 <Dropdown.Item as={Link} href="/sign-in">
-                    Logout
+                    {getMessage('Logout')}
                 </Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
@@ -217,14 +218,14 @@ export default function NewSidenav({ ...props }) {
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                     <Dropdown.Item as={Link} href="/profile-posts">
-                        Profile
+                        {getMessage('Profile')}
                     </Dropdown.Item>
                     <Dropdown.Item as={Link} href="/account-general">
-                        Settings
+                        {getMessage('Settings')}
                     </Dropdown.Item>
                     <Dropdown.Divider />
                     <Dropdown.Item as={Link} href="/sign-in">
-                        Logout
+                        {getMessage('Logout')}
                     </Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
