@@ -5,6 +5,7 @@ import {
     Row,
 } from "react-bootstrap";
 import { DocumentListTable } from "../widgets";
+import { getMessage } from "../helpers/lang";
 
 const contacts = {
     items: {
@@ -66,7 +67,7 @@ const DocumentList = () => {
     return (
         <div className="main-content">
             <Container fluid>
-                <AddressHeader pretitle="overview" title="Document List" />
+                <AddressHeader pretitle={getMessage('overview')} title={getMessage('Document List')} />
             </Container>
             <Container fluid>
                 <Row className="justify-content-center">

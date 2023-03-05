@@ -8,11 +8,13 @@ import {
     Select,
 } from "react-bootstrap";
 
+import { getMessage } from "../helpers/lang";
+
 const AddPdf = () => {
     return (
         <div className="main-content">
             <Container fluid>
-                <AddressHeader pretitle="overview" title="Generate PDF" />
+                <AddressHeader pretitle={getMessage('overview')} title={getMessage('generate_pdf')} />
             </Container>
             <Container fluid>
                 <Row>
@@ -20,109 +22,109 @@ const AddPdf = () => {
                         <Form>
                             <Accordion defaultActiveKey="0">
                                 <Accordion.Item eventKey="0">
-                                <Accordion.Header>General Data</Accordion.Header>
+                                <Accordion.Header>{getMessage('general_data')}</Accordion.Header>
                                 <Accordion.Body>
                                     <Row>
-                                    <h3 htmlFor="license-accident" className="mb-4 mt-3 text-info">License plate and vehicle make and vehicle model</h3>
+                                    <h3 htmlFor="license-accident" className="mb-4 mt-3 text-info">{getMessage('licence_plate_and_vehicle_model')}</h3>
                                         <Col xs={12} md={6} xl={4}>
                                             <div className="form-group">
-                                                <Form.Label htmlFor="caseNumber">Case number</Form.Label>
-                                                <Form.Control id="caseNumber" placeholder="Enter case number" type="text" />
+                                                <Form.Label htmlFor="caseNumber">{getMessage('case_number')}</Form.Label>
+                                                <Form.Control id="caseNumber" placeholder={getMessage('enter_case_number')} type="text" />
                                             </div>
                                         </Col>
                                         <Col xs={12} md={6} xl={4}>
                                             <div className="form-group">
-                                                <Form.Label htmlFor="date">Date</Form.Label>
-                                                <Form.Control id="date" placeholder="Enter a date" type="date" />
+                                                <Form.Label htmlFor="date">{getMessage('date')}</Form.Label>
+                                                <Form.Control id="date" placeholder={getMessage('enter_a_date')} type="date" />
                                             </div>
                                         </Col>
                                         <Col xs={12} md={6} xl={4}>
                                             <div className="form-group">
-                                                <Form.Label htmlFor="date-inspection">Date of inspection</Form.Label>
-                                                <Form.Control id="date-inspection" placeholder="Enter a date of inspection" type="date" />
+                                                <Form.Label htmlFor="date-inspection">{getMessage('date_of_inspection')}</Form.Label>
+                                                <Form.Control id="date-inspection" placeholder={getMessage('enter_a_date_of_inspection')} type="date" />
                                             </div>
                                         </Col>
                                         <Col xs={12} md={6} xl={4}>
                                             <div className="form-group">
-                                                <Form.Label htmlFor="place-inspection">Place of inspection</Form.Label>
-                                                <Form.Control id="place-inspection" placeholder="Enter a place of inspection" type="text" />
+                                                <Form.Label htmlFor="place-inspection">{getMessage('place_of_inspection')}</Form.Label>
+                                                <Form.Control id="place-inspection" placeholder={getMessage('enter_place_inspection')} type="text" />
                                             </div>
                                         </Col>
                                         <Col xs={12} md={6} xl={4}>
                                             <div className="form-group">
-                                                <Form.Label htmlFor="vehicle-make">Vehicle make</Form.Label>
-                                                <Form.Control id="vehicle-make" placeholder="Enter vehicle make" type="text" />
+                                                <Form.Label htmlFor="vehicle-make">{getMessage('vehicle_make')}</Form.Label>
+                                                <Form.Control id="vehicle-make" placeholder={getMessage('enter_vehicle_make')} type="text" />
                                             </div>
                                         </Col>
                                         <Col xs={12} md={6} xl={4}>
                                             <div className="form-group">
-                                                <Form.Label htmlFor="vehicle-model-customer">Vehicle model customer</Form.Label>
-                                                <Form.Control id="vehicle-model-customer" placeholder="Enter a vehicle model customer" type="text" />
+                                                <Form.Label htmlFor="vehicle-model-customer">{getMessage('vehicle_model_customer')}</Form.Label>
+                                                <Form.Control id="vehicle-model-customer" placeholder={getMessage('enter_vehicle_model_customer')} type="text" />
                                             </div>
                                         </Col>
-                                        <h3 htmlFor="license-accident" className="mb-4 mt-3 text-info">License plate and vehicle make and vehicle model of the other party involved in the accident</h3>
+                                        <h3 htmlFor="license-accident" className="mb-4 mt-3 text-info">{getMessage('license_plate_vehicle_model_other_party_involved_accident')}</h3>
                                         <Col xs={12} md={6} xl={4}>
                                             <div className="form-group">
-                                                <Form.Label htmlFor="license-accident">License plate</Form.Label>
-                                                <Form.Control id="license-accident" placeholder="Enter license plate" type="text" />
-                                            </div>
-                                        </Col>
-
-                                        <Col xs={12} md={6} xl={4}>
-                                            <div className="form-group">
-                                                <Form.Label htmlFor="vehicle-make-accident">Vehicle make</Form.Label>
-                                                <Form.Control id="vehicle-make-accident" placeholder="Enter a vehicle model customer" type="text" />
+                                                <Form.Label htmlFor="license-accident">{getMessage('license_plate')}</Form.Label>
+                                                <Form.Control id="license-accident" placeholder={getMessage('enter_license_plate')} type="text" />
                                             </div>
                                         </Col>
 
                                         <Col xs={12} md={6} xl={4}>
                                             <div className="form-group">
-                                                <Form.Label htmlFor="vehicle-model-accident">Vehicle model</Form.Label>
-                                                <Form.Control id="vehicle-model-accident" placeholder="Enter a vehicle model customer" type="text" />
+                                                <Form.Label htmlFor="vehicle-make-accident">{getMessage('vehicle_make')}</Form.Label>
+                                                <Form.Control id="vehicle-make-accident" placeholder={getMessage('enter_vehicle_model_customer')} type="text" />
+                                            </div>
+                                        </Col>
+
+                                        <Col xs={12} md={6} xl={4}>
+                                            <div className="form-group">
+                                                <Form.Label htmlFor="vehicle-model-accident">{getMessage('vehicle_model')}</Form.Label>
+                                                <Form.Control id="vehicle-model-accident" placeholder={getMessage('enter_vehicle_model_customer')} type="text" />
                                             </div>
                                         </Col>
                                         <Row className="mt-3">
                                             <Col xs={12} md={6} xl={4}>
                                                 <div className="form-group">
-                                                    <Form.Check type="switch" id="address-diff" label="Address different?" />
+                                                    <Form.Check type="switch" id="address-diff" label={getMessage('address_different')} />
                                                 </div>
                                             </Col>
 
                                             <Col xs={12} md={6} xl={4}>
                                                 <div className="form-group">
-                                                    <Form.Check type="switch" id="signer-diff" label="Signer different?" />
+                                                    <Form.Check type="switch" id="signer-diff" label={getMessage('signer_different')} />
                                                 </div>
                                             </Col>
 
                                             <Col xs={12} md={6} xl={4}>
                                                 <div className="form-group">
-                                                    <Form.Check type="switch" id="send-email" label="Send appraisals by email?" />
+                                                    <Form.Check type="switch" id="send-email" label={getMessage('send_appraisals_by_email')} />
                                                 </div>
                                             </Col>
                                         </Row>
                                         <Row className="mt-3">
                                             <Col xs={12} md={6} xl={4}>
                                                 <div className="form-group">
-                                                    <Form.Label htmlFor="damage-day">Damage day</Form.Label>
-                                                    <Form.Control id="damage-day" placeholder="Enter a damage day" type="date" />
+                                                    <Form.Label htmlFor="damage-day">{getMessage('damage_day')}</Form.Label>
+                                                    <Form.Control id="damage-day" placeholder={getMessage('enter_damage_day')} type="date" />
                                                 </div>
                                             </Col>
 
                                             <Col xs={12} md={6} xl={4}>
                                                 <div className="form-group">
-                                                    <Form.Label htmlFor="damage-location">Damage location</Form.Label>
-                                                    <Form.Control id="damage-location" placeholder="Enter a damage location" type="text" />
+                                                    <Form.Label htmlFor="damage-location">{getMessage('damage_location')}</Form.Label>
+                                                    <Form.Control id="damage-location" placeholder={getMessage('enter_damage_location')} type="text" />
                                                 </div>
                                             </Col>
 
                                             <Col xs={12} md={6} xl={4}>
                                                 <div className="form-group">
-                                                <Form.Label htmlFor="vehicle-model-customer">Is the vehicle owned, financed or leased?</Form.Label>
+                                                <Form.Label htmlFor="vehicle-model-customer">{getMessage('is_the_vehicle_owned_financed_or_leased')}</Form.Label>
                                                 <Form.Control as="select">
-                                                    <option value="unknown">unknown</option>
-                                                    <option value="financed">financed</option>
-                                                    <option value="leased">leased</option>
-                                                    <option value="owned">owned</option>
+                                                    <option value="unknown">{getMessage('unknown')}</option>
+                                                    <option value="financed">{getMessage('financed')}</option>
+                                                    <option value="leased">{getMessage('leased')}</option>
+                                                    <option value="owned">{getMessage('owned')}</option>
                                                 </Form.Control>
                                                 </div>
                                             </Col>
@@ -131,19 +133,19 @@ const AddPdf = () => {
                                         <Row className="mt-3">
                                             <Col xs={12} md={6} xl={4}>
                                                 <div className="form-group">
-                                                    <Form.Check type="switch" id="know-other-address" label="Address of the other party known?" />
+                                                    <Form.Check type="switch" id="know-other-address" label={getMessage('addressof_other_party_known')} />
                                                 </div>
                                             </Col>
 
                                             <Col xs={12} md={6} xl={4}>
                                                 <div className="form-group">
-                                                    <Form.Check type="switch" id="know-other-insurer" label="Insurer of the polluter known?" />
+                                                    <Form.Check type="switch" id="know-other-insurer" label={getMessage('insurer_polluter_known')} />
                                                 </div>
                                             </Col>
 
                                             <Col xs={12} md={6} xl={4}>
                                                 <div className="form-group">
-                                                    <Form.Check type="switch" id="need-lawyer" label="Want a lawyer?" />
+                                                    <Form.Check type="switch" id="need-lawyer" label={getMessage('want_lawyer')} />
                                                 </div>
                                             </Col>
                                         </Row>
@@ -152,7 +154,7 @@ const AddPdf = () => {
                                 </Accordion.Body>
                                 </Accordion.Item>
                                 <Accordion.Item eventKey="1">
-                                <Accordion.Header>Accordion Item #2</Accordion.Header>
+                                <Accordion.Header>{getMessage('accordion_item#2')}</Accordion.Header>
                                 <Accordion.Body>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
