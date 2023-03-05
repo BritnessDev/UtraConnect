@@ -125,9 +125,9 @@ const AddPdf = () => {
                                     </Fade>
                                 }
                                 <Accordion.Item eventKey="8">
-                                <Accordion.Header>Summary</Accordion.Header>
+                                <Accordion.Header>{getMessage('Summary')}</Accordion.Header>
                                 <Accordion.Body>
-                                    Summary Data
+                                    {getMessage('Summary Data')}
                                     <SignatureModal/>
                                 </Accordion.Body>
                                 </Accordion.Item>

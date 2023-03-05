@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
+import { getMessage } from '../helpers/lang';
 
 function SignatureModal() {
   const canvasRef = useRef(null);
@@ -81,8 +82,8 @@ function SignatureModal() {
         onTouchEnd={handleTouchEnd}
       />
         <div className='mt-3'>
-          <Button variant="white" onClick={handleClear}>Clear</Button>
-          <Button variant="white" onClick={handleSave} className="ms-3">Save</Button>
+          <Button variant="white" onClick={handleClear}>{getMessage('Clear')}</Button>
+          <Button variant="white" onClick={handleSave} className="ms-3">{getMessage('Save')}</Button>
         </div>
       </Col>
     </Row>

@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { setLogin, loginFetch, setLoading } from '../features/auth/loginSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { getMessage } from '../helpers/lang';
 
 
 export default function SignInForm() {
@@ -33,11 +34,11 @@ export default function SignInForm() {
 
   return (
     <>
-      <h1 className="display-4 text-center mb-3">Sign in</h1>
-      <p className="text-muted text-center mb-5">Free access to our dashboard.</p>
+      <h1 className="display-4 text-center mb-3">{getMessage('Sign in')}</h1>
+      <p className="text-muted text-center mb-5">{getMessage('Free access to our dashboard')}</p>
       <form>
         <div className="form-group">
-          <Form.Label>Email Address</Form.Label>
+          <Form.Label>{getMessage('Email Address')}</Form.Label>
           <Form.Control 
             type="email" 
             placeholder="name@address.com" 
@@ -46,7 +47,7 @@ export default function SignInForm() {
         <div className="form-group">
           <Row>
             <Col>
-              <Form.Label>Password</Form.Label>
+              <Form.Label>{getMessage('Password')}</Form.Label>
             </Col>
             <Col xs="auto">
               <Form.Text 
@@ -54,14 +55,14 @@ export default function SignInForm() {
                 className="small text-muted" 
                 href="/password-reset"
                 >
-                Forgot password?
+                {getMessage('Forgot password')}
               </Form.Text>
             </Col>
           </Row>
           <InputGroup className="input-group-merge">
             <Form.Control 
                 type="password" 
-                placeholder="Enter your password" 
+                placeholder={getMessage('Enter your password')} 
                 onChange={(e) => dispatch(setLogin({ password: e.target.value }))}
               />
             <InputGroup.Text>
@@ -74,11 +75,11 @@ export default function SignInForm() {
           className="w-100 mb-3"
           onClick={() => handleLoginProcess()}
           >
-          Sign in
+          {getMessage('Sign in')}
         </Button>   
         <p className="text-center">
           <small className="text-muted text-center">
-            Don't have an account yet? <Link href="/sign-up">Sign up</Link>.
+            {getMessage('Dont have an account yet')} <Link href="/sign-up">{getMessage('Sign up')}</Link>.
           </small>
         </p>
       </form>
