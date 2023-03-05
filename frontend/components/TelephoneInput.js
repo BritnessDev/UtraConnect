@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import Select from 'react-select';
-import { Form, Row, Col } from 'react-bootstrap';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import countries from 'i18n-iso-countries';

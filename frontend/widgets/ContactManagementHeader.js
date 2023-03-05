@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { Col, Nav, Row } from 'react-bootstrap';
 import { Header } from '../components';
+import { getMessage } from '../helpers/lang';
 
 export default function AccountHeader({ ...props }) {
   const router = useRouter();
@@ -12,8 +13,8 @@ export default function AccountHeader({ ...props }) {
       <Header.Body>
         <Row className="align-items-center">
           <Col>
-            <Header.Pretitle>Overview</Header.Pretitle>
-            <Header.Title>Contact Management</Header.Title>
+            <Header.Pretitle>{getMessage('overview')}</Header.Pretitle>
+            <Header.Title>{getMessage('contact_management')}</Header.Title>
           </Col>
         </Row>
         <Row className="align-items-center">
@@ -21,12 +22,12 @@ export default function AccountHeader({ ...props }) {
             <Header.Tabs className="nav-overflow">
               <Nav.Item>
                 <Nav.Link as={Link} href="/contact-add" active={router.pathname === '/contact-add'}>
-                  Contact
+                  {getMessage('contact')}
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link as={Link} href="/contact-person" active={router.pathname === '/contact-person'}>
-                  Contact Person
+                  {getMessage('contact_person')}
                 </Nav.Link>
               </Nav.Item>
             </Header.Tabs>

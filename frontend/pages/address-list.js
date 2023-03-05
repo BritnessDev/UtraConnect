@@ -5,6 +5,7 @@ import {
     Row,
 } from "react-bootstrap";
 import { AddressListTable } from "../widgets";
+import { getMessage } from "../helpers/lang";
 
 const deals = {
     items: {
@@ -46,21 +47,21 @@ const deals = {
 
 const AddressList = () => {
     const pagesOptions = [
-        { value: 5, label: "5 per page" },
-        { value: 10, label: "10 per page" },
-        { value: -1, label: "All" },
+        { value: 5, label: getMessage('five_per_page') },
+        { value: 10, label: getMessage('ten_per_page') },
+        { value: -1, label: getMessage('all') },
     ];
 
     const titleOptions = [
-        { value: "*", label: "Any" },
-        { value: "designer", label: "Designer" },
-        { value: "developer", label: "Developer" },
-        { value: "owner", label: "Owner" },
-        { value: "founder", label: "Founder" },
+        { value: "*", label: getMessage('any') },
+        { value: "designer", label: getMessage('designer') },
+        { value: "developer", label: getMessage('developer') },
+        { value: "owner", label: getMessage('owner') },
+        { value: "founder", label: getMessage('founder') },
     ];
 
     const leadScoreOptions = [
-        { value: "-1", label: "Any" },
+        { value: "-1", label: getMessage('any') },
         { value: "1", label: "1+" },
         { value: "2", label: "2+" },
         { value: "3", label: "3+" },
@@ -76,7 +77,7 @@ const AddressList = () => {
     return (
         <div className="main-content">
             <Container fluid>
-                <AddressHeader pretitle="overview" title="Contact" />
+                <AddressHeader pretitle={getMessage('overview')} title={getMessage('Title')} />
             </Container>
             <Container fluid>
                 <Row className="justify-content-center">

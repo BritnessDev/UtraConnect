@@ -1,3 +1,5 @@
+import { getMessage } from "../helpers/lang";
+
 export default {
     base: {
         children: ["contact", "documents", "datacollection"],
@@ -7,34 +9,34 @@ export default {
     contact: {
         icon: "folder",
         id: "contact",
-        title: "Contact",
+        title: getMessage("contact"),
         children: ["addressbook", "contactmanagement"],
     },
 
     addressbook: {
         icon: "user",
         id: "contact-list",
-        title: "Address Book",
+        title: getMessage("Address Book"),
         url: "/address-list",
     },
 
     contactmanagement: {
         icon: "file-text",
         id: "contact_management",
-        title: "Contact Management",
+        title: getMessage("Contact Management"),
         url: "/contact-add"
     },
 
     documents: {
         icon: "file-text",
         id: "documents",
-        title: "Documents",
+        title: getMessage("Documents"),
         url: "/document-list",
     },
     datacollection: {
         icon: "file-text",
         id: "datacollection",
-        title: "Data Collection",
+        title: getMessage("Data Collection"),
         url: "/add-pdf",
     },
 };

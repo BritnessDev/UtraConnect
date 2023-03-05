@@ -20,6 +20,8 @@ import {
 } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
+import { getMessage } from "../helpers/lang";
+
 const AddPdf = () => {
     const [pdfData, setPdfData] = useState({
         general: {},
@@ -45,7 +47,7 @@ const AddPdf = () => {
     return (
         <div className="main-content">
             <Container fluid>
-                <AddressHeader pretitle="overview" title="Generate PDF" />
+                <AddressHeader pretitle={getMessage('overview')} title={getMessage('generate_pdf')} />
             </Container>
             <Container fluid>
                 <Row>
@@ -53,7 +55,7 @@ const AddPdf = () => {
                         <Form>
                             <Accordion defaultActiveKey="0">
                                 <Accordion.Item eventKey="0">
-                                <Accordion.Header>General Data</Accordion.Header>
+                                <Accordion.Header>{getMessage('general_data')}</Accordion.Header>
                                 <Accordion.Body>
                                     <GeneralDataPart pdfData={pdfData} setPdfData={setPdfData}/>
                                 </Accordion.Body>
@@ -72,7 +74,6 @@ const AddPdf = () => {
                                     <InsuranceDataPart pdfData={pdfData} setPdfData={setPdfData}/>
                                 </Accordion.Body>
                                 </Accordion.Item>
-
                                 <Accordion.Item eventKey="4">
                                 <Accordion.Header>Accident Opponent Data</Accordion.Header>
                                 <Accordion.Body>
@@ -123,7 +124,6 @@ const AddPdf = () => {
                                         </Accordion.Item>
                                     </Fade>
                                 }
-
                                 <Accordion.Item eventKey="8">
                                 <Accordion.Header>Summary</Accordion.Header>
                                 <Accordion.Body>
@@ -131,7 +131,6 @@ const AddPdf = () => {
                                     <SignatureModal/>
                                 </Accordion.Body>
                                 </Accordion.Item>
-
                             </Accordion>
                         </Form>
                     </Col>

@@ -5,6 +5,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import { ContactManagementHeader } from '../widgets';
 import TelephoneInput from '../components/TelephoneInput';
 import { useState } from 'react'
+import { getMessage } from '../helpers/lang';
 
 export default function ContactPerson() {
   const [salutation, setSalutation] = useState('');
@@ -39,13 +40,13 @@ export default function ContactPerson() {
                       <Col xs={12} md={6} xl={4}>
                         <Col xs={12}>
                           <div className="form-group">
-                            <h2>General</h2>
+                            <h2>{getMessage("General")}</h2>
                           </div>
                         </Col>
 
                         <Col xs={12}>
                           <div className="form-group">
-                            <Form.Label>Salutation</Form.Label>
+                            <Form.Label>{getMessage("Salutation")}</Form.Label>
                             <Select
                                 className="mb-4"
                                 options={[
@@ -54,15 +55,15 @@ export default function ContactPerson() {
                                   { value: 'mx', label: 'Mx' },
                                   { value: 'company', label: 'Company' },
                                 ]}
-                                placeholder={'Choose the salutation.'}
+                                placeholder={getMessage('Choose the salutation.')}
                                 onChange={(e) => {setSalutation(e.value)}}
                               />
                           </div>
                         </Col>
                         <Col xs={12}>
                           <div className="form-group">
-                            <Form.Label>Title</Form.Label>
-                            <Form.Control type="text" placeholder='Title'/>
+                            <Form.Label>{getMessage('Title')}</Form.Label>
+                            <Form.Control type="text" placeholder={getMessage('Title')}/>
                           </div>
                         </Col>
 
@@ -70,14 +71,14 @@ export default function ContactPerson() {
                           <Row>
                             <Col xs={`${salutation !== "company" ? '6' : '12'}`} >
                               <div className="form-group">
-                                <Form.Label>Forename</Form.Label>
-                                <Form.Control type="text" placeholder='Forname'/>
+                                <Form.Label>{getMessage('Firstname')}</Form.Label>
+                                <Form.Control type="text" placeholder={getMessage('Firstname')}/>
                               </div>
                             </Col>
                             <Col xs={6} className={`${salutation !== "company" ? 'd-block' : 'd-none'}`}>
                               <div className="form-group">
-                                <Form.Label>Surname</Form.Label>
-                                <Form.Control type="text" placeholder='Surname'/>
+                                <Form.Label>{getMessage('Surname')}</Form.Label>
+                                <Form.Control type="text" placeholder={getMessage('Surname')}/>
                               </div>
                             </Col>
                           </Row>
@@ -85,8 +86,8 @@ export default function ContactPerson() {
 
                         <Col xs={12} className={`${salutation === "company" ? 'd-block' : 'd-none'}`}>
                           <div className="form-group">
-                            <Form.Label>Company</Form.Label>
-                            <Form.Control as={TextareaAutosize} placeholder="Please write the company." minRows={3}/>
+                            <Form.Label>{getMessage('Company')}</Form.Label>
+                            <Form.Control as={TextareaAutosize} placeholder={getMessage('Please write the company')} minRows={3}/>
                           </div>
                         </Col>
 
@@ -96,21 +97,21 @@ export default function ContactPerson() {
                       <Col xs={12} md={6} xl={4}>
                         <Col xs={12}>
                           <div className="form-group">
-                            <h2>Contact</h2>
+                            <h2>{getMessage('contact')}</h2>
                           </div>
                         </Col>
 
                         <Col xs={12}>
                           <div className="form-group">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" placeholder='Email' />
+                            <Form.Label>{getMessage('Email')}</Form.Label>
+                            <Form.Control type="email" placeholder={getMessage('Email')} />
                           </div>
                         </Col>
                         <Col xs={12}>
                           <div className="form-group">
-                            <Form.Label>Website</Form.Label>
+                            <Form.Label>{getMessage('Website')}</Form.Label>
                             <InputGroup className="input-group-merge mb-3">
-                              <Form.Control placeholder="Website" />
+                              <Form.Control placeholder={getMessage('Website')} />
                               <InputGroup.Text className='bg-primary'>
                                   <FeatherIcon icon="external-link" size="1em" className='text-white' />
                               </InputGroup.Text>
@@ -119,7 +120,7 @@ export default function ContactPerson() {
                         </Col>
                         <Col xs={12}>
                           <div className="form-group">
-                            <Form.Label>Telephone</Form.Label>
+                            <Form.Label>{getMessage('Telephone')}</Form.Label>
                             <InputGroup className="input-group-merge mb-3">
                               <TelephoneInput />
                               <InputGroup.Text className='bg-primary'>
@@ -131,7 +132,7 @@ export default function ContactPerson() {
 
                         <Col xs={12}>
                           <div className="form-group">
-                            <Form.Label>Telephone</Form.Label>
+                            <Form.Label>{getMessage('Telephone')}</Form.Label>
                             <InputGroup className="input-group-merge mb-3">
                               <TelephoneInput />
                               <InputGroup.Text className='bg-primary'>
@@ -146,36 +147,36 @@ export default function ContactPerson() {
                       <Col xs={12} md={6} xl={4}>
                         <Col xs={12}>
                           <div className="form-group">
-                            <h2>Address</h2>
+                            <h2>{getMessage('Address')}</h2>
                           </div>
                         </Col>
                         
                         <Col xs={12}>
                           <div className="form-group">
-                            <Form.Label>Country</Form.Label>
-                            <Form.Control type="text" placeholder='Country' />
+                            <Form.Label>{getMessage('Country')}</Form.Label>
+                            <Form.Control type="text" placeholder={getMessage('Country')} />
                           </div>
                         </Col>
                         <Col xs={12}>
                           <div className="form-group">
-                            <Form.Label>Zip</Form.Label>
-                            <Form.Control type="text" placeholder='Zip' />
+                            <Form.Label>{getMessage('Zip')}</Form.Label>
+                            <Form.Control type="text" placeholder={getMessage('Zip')} />
                           </div>
                         </Col>
                         <Col xs={12}>
                           <div className="form-group">
-                            <Form.Label>Post Code / City</Form.Label>
+                            <Form.Label>{getMessage('Post Code / City')}</Form.Label>
                             
                             <InputGroup className="input-group-merge mb-3">
-                              <Form.Control type="text" placeholder='Postcode'/>
-                              <Form.Control type="text" placeholder='City'/>
+                              <Form.Control type="text" placeholder={getMessage('Postcode')} />
+                              <Form.Control type="text" placeholder={getMessage('City')} />
                             </InputGroup>
                           </div>
                         </Col>
                         <Col xs={12}>
                           <div className="form-group">
-                            <Form.Label>Street, No</Form.Label>
-                            <Form.Control type="text" placeholder='Street, No' />
+                            <Form.Label>{getMessage('Street, No')}</Form.Label>
+                            <Form.Control type="text" placeholder={getMessage('Street, No')} />
                           </div>
                         </Col>
                       </Col>
@@ -183,30 +184,30 @@ export default function ContactPerson() {
                       <Col xs={12} md={6} xl={4}>
                         <Col xs={12}>
                           <div className="form-group">
-                            <h2>Miscellaneous</h2>
+                            <h2>{getMessage('Miscellaneous')}</h2>
                           </div>
                         </Col>
 
 
                         <Col xs={12}>
                           <div className="form-group">
-                            <Form.Label>Versicherungsscheinnummer</Form.Label>
-                            <Form.Control type="text" placeholder="Please write the Versicherungsscheinnummer." />
+                            <Form.Label>{getMessage('Versicherungsscheinnummer')}</Form.Label>
+                            <Form.Control type="text" placeholder={getMessage('Please write the Versicherungsscheinnummer."')} />
                           </div>
                         </Col>
 
                         
                         <Col xs={12}>
                           <div className="form-group">
-                            <Form.Label>Schadennummer</Form.Label>
-                            <Form.Control type="text" placeholder="Please write the Schadennummer." />
+                            <Form.Label>{getMessage('Schadennummer')}</Form.Label>
+                            <Form.Control type="text" placeholder={getMessage('Please write the Schadennummer.')} />
                           </div>
                         </Col>
 
                         <Col xs={12}>
                           <div className="form-group">
-                            <Form.Label>Comment</Form.Label>
-                            <Form.Control as={TextareaAutosize} placeholder="Please write the comment." minRows={3}/>
+                            <Form.Label>{getMessage('Comment')}</Form.Label>
+                            <Form.Control as={TextareaAutosize} placeholder={getMessage('Please write the comment')} minRows={3}/>
                           </div>
                         </Col>
 
@@ -218,7 +219,7 @@ export default function ContactPerson() {
                               <InputGroup.Text className='bg-warning'>
                                   <FeatherIcon icon="trash" size="1em" className='text-white' />
                               </InputGroup.Text>
-                              <Button className='btn btn-warning text-white' onClick={() => onDeletePerson(key)}>Delete</Button>
+                              <Button className='btn btn-warning text-white' onClick={() => onDeletePerson(key)}>{getMessage('Delete')}</Button>
                           </InputGroup>
                         </Col>
                       </Row>
@@ -233,7 +234,7 @@ export default function ContactPerson() {
 
               <Row>
                 <Col>
-                    <Button className='btn btn-success' onClick={() => onClickAddNewPerson()}>+ New contact person</Button>
+                    <Button className='btn btn-success' onClick={() => onClickAddNewPerson()}>{getMessage('New contact person')}</Button>
                 </Col>
               </Row>
 
@@ -244,11 +245,11 @@ export default function ContactPerson() {
               <Row className="justify-content-between mt-2">
                 <Col xs={12} md={6} className="col-12 col-md-6">
                   <Button variant="danger">
-                    Abort
+                    {getMessage('Abort')}
                   </Button>
                 </Col>
                 <Col xs="auto">
-                  <Button>Save</Button>
+                  <Button>{getMessage('Save')}</Button>
                 </Col>
               </Row>
 

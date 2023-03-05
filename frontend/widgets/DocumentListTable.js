@@ -23,6 +23,7 @@ import {
     useTable,
 } from "react-table";
 import { IndeterminateCheckbox, Select } from "../components/vendor";
+import { getMessage } from "../helpers/lang";
 
 export default function DocumentListTable({
     deals,
@@ -53,27 +54,27 @@ export default function DocumentListTable({
                 ),
             },
             {
-                Header: "ID",
+                Header: getMessage("ID"),
                 accessor: "id",
             },
             {
-                Header: "File Number",
+                Header: getMessage("File Number"),
                 accessor: "filenumber",
             },
             {
-                Header: "License Plate",
+                Header: getMessage("License Plate"),
                 accessor: "license",
             },
             {
-                Header: "Name",
+                Header: getMessage("Name"),
                 accessor: "name",
             },
             {
-                Header: "Created On",
+                Header: getMessage("Created On"),
                 accessor: "created",
             },
             {
-                Header: "Modified On",
+                Header: getMessage("Modified On"),
                 accessor: "modified",
             },
             {
@@ -158,7 +159,7 @@ export default function DocumentListTable({
                                         label: "type 2",
                                     },
                                 ]}
-                                placeholder="All files"
+                                placeholder={getMessage('All files')}
                                 layout="flush"
                                 size="sm"
                                 className="btn btn-white btn-sm"
@@ -172,12 +173,14 @@ export default function DocumentListTable({
                                         icon="plus"
                                         size="1em"
                                     />{" "}
-                                    New
+                                    {getMessage('New')}
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
                                     <Card.Header>
                                         <h4 className="card-header-title">
-                                            Filters
+                                            {
+                                                getMessage('Filters')
+                                            }
                                         </h4>
                                     </Card.Header>
                                     <Card.Body>
@@ -185,7 +188,7 @@ export default function DocumentListTable({
                                             <ListGroup.Item>
                                                 <Row>
                                                     <Col>
-                                                        <small>Title</small>
+                                                        <small>{getMessage('Title')}</small>
                                                     </Col>
                                                     <Col xs="auto">
                                                         <Select
@@ -201,7 +204,7 @@ export default function DocumentListTable({
                                                 <Row>
                                                     <Col>
                                                         <small>
-                                                            Lead score
+                                                            {getMessage('Lead score')}
                                                         </small>
                                                     </Col>
                                                     <Col xs="auto">
@@ -216,7 +219,7 @@ export default function DocumentListTable({
                                             </ListGroup.Item>
                                         </ListGroup>
                                         <Button className="w-100">
-                                            Apply filter
+                                            {getMessage('Apply filter')} 
                                         </Button>
                                     </Card.Body>
                                 </Dropdown.Menu>
@@ -294,7 +297,7 @@ export default function DocumentListTable({
                                 size="1em"
                                 className="me-1"
                             />{" "}
-                            Prev
+                            {getMessage('Prev')}
                         </Pagination.Item>
                     </Pagination>
                     <Pagination className="card-pagination pagination-tabs">
@@ -314,7 +317,7 @@ export default function DocumentListTable({
                             disabled={!canNextPage}
                             onClick={() => nextPage()}
                         >
-                            Next{" "}
+                            {getMessage('Next')}{" "}
                             <FeatherIcon
                                 icon="arrow-right"
                                 size="1em"
@@ -342,14 +345,14 @@ export default function DocumentListTable({
                         </Col>
                         <Col xs="auto" className="me-n3">
                             <Button variant="white-20" size="sm">
-                                Edit
+                                {getMessage('Edit')}
                             </Button>
                             <Button
                                 variant="white-20"
                                 size="sm"
                                 className="ms-1"
                             >
-                                Delete
+                                {getMessage('Delete')}
                             </Button>
                         </Col>
                     </Row>
