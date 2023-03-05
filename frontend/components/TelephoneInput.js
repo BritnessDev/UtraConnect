@@ -4,8 +4,6 @@ import { Form, Row, Col } from 'react-bootstrap';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import countries from 'i18n-iso-countries';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 const options = Object.entries(countries.getNames('en', { select: 'official' })).map(([code, name]) => ({
   value: code.toLowerCase(),
