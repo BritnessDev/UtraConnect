@@ -62,20 +62,20 @@ const AddPdf = () => {
                                 </Accordion.Item>
 
                                 <Accordion.Item eventKey="2">
-                                <Accordion.Header>Data of our customer</Accordion.Header>
+                                <Accordion.Header>{getMessage('Data of our customer')}</Accordion.Header>
                                 <Accordion.Body>
                                     <CustomerDataPart pdfData={pdfData} setPdfData={setPdfData}/>
                                 </Accordion.Body>
                                 </Accordion.Item>
 
                                 <Accordion.Item eventKey="3">
-                                <Accordion.Header>Insurance Company Data</Accordion.Header>
+                                <Accordion.Header>{getMessage('Insurance Company Data')}</Accordion.Header>
                                 <Accordion.Body>
                                     <InsuranceDataPart pdfData={pdfData} setPdfData={setPdfData}/>
                                 </Accordion.Body>
                                 </Accordion.Item>
                                 <Accordion.Item eventKey="4">
-                                <Accordion.Header>Accident Opponent Data</Accordion.Header>
+                                <Accordion.Header>{getMessage('Accident Opponent Data')}</Accordion.Header>
                                 <Accordion.Body>
                                     <OpportunityDataPart pdfData={pdfData} setPdfData={setPdfData}/>
                                 </Accordion.Body>
@@ -84,7 +84,7 @@ const AddPdf = () => {
                                     pdfData?.general.needLawyer &&
                                     <Fade in={pdfData?.general.needLawyer}>
                                         <Accordion.Item eventKey="5">
-                                        <Accordion.Header>Lawyer Data</Accordion.Header>
+                                        <Accordion.Header>{getMessage('Lawyer Data')}</Accordion.Header>
                                         <Accordion.Body>
                                             <LawyerDataPart pdfData={pdfData} setPdfData={setPdfData}/>
                                         </Accordion.Body>
@@ -95,7 +95,7 @@ const AddPdf = () => {
                                     pdfData?.general.repairIntended && 
                                     <Fade in={pdfData?.general.repairIntended}>
                                         <Accordion.Item eventKey="6">
-                                        <Accordion.Header>Repair Workshop Data</Accordion.Header>
+                                        <Accordion.Header>{getMessage('Repair Workshop Data')}</Accordion.Header>
                                         <Accordion.Body>
                                             <WorkshopDataPart pdfData={pdfData} setPdfData={setPdfData} />
                                         </Accordion.Body>
@@ -106,7 +106,7 @@ const AddPdf = () => {
                                     pdfData.general?.vehicleOwner === "financed" &&
                                     <Fade in={pdfData.general?.vehicleOwner === "financed"}>
                                         <Accordion.Item eventKey="7">
-                                            <Accordion.Header>Bank Data</Accordion.Header>
+                                            <Accordion.Header>{getMessage('Bank Data')}</Accordion.Header>
                                             <Accordion.Body>
                                                 <BankDataPart pdfData={pdfData} setPdfData={setPdfData} />
                                             </Accordion.Body>
@@ -117,7 +117,7 @@ const AddPdf = () => {
                                     pdfData.general?.vehicleOwner === "leased" &&
                                     <Fade in={pdfData.general?.vehicleOwner === "leased"}>
                                         <Accordion.Item eventKey="7">
-                                            <Accordion.Header>Leased Data</Accordion.Header>
+                                            <Accordion.Header>{getMessage('Leased Data')}</Accordion.Header>
                                             <Accordion.Body>
                                                 <LessorDataPart pdfData={pdfData} setPdfData={setPdfData} />
                                             </Accordion.Body>
