@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Row, Col, Button } from 'react-bootstrap';
 
 function SignatureModal() {
   const canvasRef = useRef(null);
@@ -12,7 +13,7 @@ function SignatureModal() {
     canvas.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseup', handleMouseUp);
   }
-
+  
   function handleMouseMove(event) {
     event.preventDefault();
     const canvas = canvasRef.current;
@@ -20,12 +21,37 @@ function SignatureModal() {
     ctx.lineTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
     ctx.stroke();
   }
-
+  
   function handleMouseUp(event) {
     event.preventDefault();
     const canvas = canvasRef.current;
     canvas.removeEventListener('mousemove', handleMouseMove);
     document.removeEventListener('mouseup', handleMouseUp);
+  }
+  
+  function handleTouchStart(event) {
+    event.preventDefault();
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    ctx.beginPath();
+    ctx.moveTo(event.touches[0].clientX - canvas.offsetLeft, event.touches[0].clientY - canvas.offsetTop);
+    canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
+    document.addEventListener('touchend', handleTouchEnd, { passive: false });
+  }
+  
+  function handleTouchMove(event) {
+    event.preventDefault();
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    ctx.lineTo(event.touches[0].clientX - canvas.offsetLeft, event.touches[0].clientY - canvas.offsetTop);
+    ctx.stroke();
+  }
+  
+  function handleTouchEnd(event) {
+    event.preventDefault();
+    const canvas = canvasRef.current;
+    canvas.removeEventListener('touchmove', handleTouchMove);
+    document.removeEventListener('touchend', handleTouchEnd);
   }
 
   function handleClear() {
@@ -42,20 +68,24 @@ function SignatureModal() {
   }
 
   return (
-    <div>
+    <Row className='mt-4 align-items-end'>
+      <Col>
       <canvas
         ref={canvasRef}
         width={300}
         height={200}
-        style={{ border: '1px solid black' }}
+        className="border border-secondary"
         onMouseDown={handleMouseDown}
-        onTouchStart={handleMouseDown}
-        onTouchMove={handleMouseMove}
-        onTouchEnd={handleMouseUp}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       />
-      <button onClick={handleClear}>Clear</button>
-      <button onClick={handleSave}>Save</button>
-    </div>
+        <div className='mt-3'>
+          <Button variant="white" onClick={handleClear}>Clear</Button>
+          <Button variant="white" onClick={handleSave} className="ms-3">Save</Button>
+        </div>
+      </Col>
+    </Row>
   );
 }
 
