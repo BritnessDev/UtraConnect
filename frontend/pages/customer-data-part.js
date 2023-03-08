@@ -37,177 +37,175 @@ export default function CustomerDataPart ({pdfData, setPdfData, setAddContactMod
             <Container fluid>
                 <Row className="justify-content-center">
                 <Col xs={12} lg={12} xl={12}>
-                    <form>
-                    <Row className='justify-content-end'>
-                    <LoadButton setAddContactModal={setAddContactModal}/>
-                    </Row>
-                    <Row>
-                        <Col xs={12} md={6} xl={4}>
-                        <Col xs={12}>
-                            <div className="form-group">
-                            <h2>{getMessage('General')}</h2>
-                            </div>
-                        </Col>
-                        <Col xs={12}>
-                            <div className="form-group">
-                            <div className="form-group">
-                                <Form.Label htmlFor="salutation">{getMessage('Salutation')}</Form.Label>
-                                <Form.Control as="select" id="salutation" value={pdfData.customer?.salutation} onChange={onChangeHandler}>
-                                    <option value="Mrs">{getMessage('Mrs.')}</option>
-                                    <option value="Mr">{getMessage('Mr.')}</option>
-                                    <option value="Mx">{getMessage('Mx.')}</option>
-                                    <option value="Company">{getMessage('Company.')}</option>
-                                </Form.Control>
-                            </div>
-                            </div>
-                        </Col>
-                        <Col xs={12}>
-                            <div className="form-group">
-                            <Form.Label>{getMessage('Title')}</Form.Label>
-                            <Form.Control type="text" placeholder={getMessage('Title')} id="title"
-                                value={pdfData.customer?.title} onChange={onChangeHandler}/>
-                            </div>
-                        </Col>
-                        {
-                            pdfData.customer?.salutation !== "Company" &&
+                        <Row className='justify-content-end'>
+                        <LoadButton setAddContactModal={setAddContactModal}/>
+                        </Row>
+                        <Row>
+                            <Col xs={12} md={6} xl={4}>
                             <Col xs={12}>
-                            <Row>
-                                <Col xs={`${pdfData.customer?.salutation !== "Company" ? '6' : '12'}`} >
                                 <div className="form-group">
-                                    <Form.Label>{getMessage('Firstname')}</Form.Label>
-                                    <Form.Control type="text" placeholder={getMessage('Firstname')}
-                                    id="firstName" value={pdfData.customer?.firstName} onChange={onChangeHandler}/>
+                                <h2>{getMessage('General')}</h2>
                                 </div>
-                                </Col>
-                                <Col xs={6} className={`${pdfData.customer?.salutation !== "Company" ? 'd-block' : 'd-none'}`}>
-                                <div className="form-group">
-                                    <Form.Label>{getMessage('Surname')}</Form.Label>
-                                    <Form.Control type="text" placeholder={getMessage('Surname')}
-                                    id="Surname" value={pdfData.customer?.Surname} onChange={onChangeHandler} />
-                                </div>
-                                </Col>
-                            </Row>
                             </Col>
-                        }
+                            <Col xs={12}>
+                                <div className="form-group">
+                                <div className="form-group">
+                                    <Form.Label htmlFor="salutation">{getMessage('Salutation')}</Form.Label>
+                                    <Form.Control as="select" id="salutation" value={pdfData.customer?.salutation} onChange={onChangeHandler}>
+                                        <option value="Mrs">{getMessage('Mrs.')}</option>
+                                        <option value="Mr">{getMessage('Mr.')}</option>
+                                        <option value="Mx">{getMessage('Mx.')}</option>
+                                        <option value="Company">{getMessage('Company.')}</option>
+                                    </Form.Control>
+                                </div>
+                                </div>
+                            </Col>
+                            <Col xs={12}>
+                                <div className="form-group">
+                                <Form.Label>{getMessage('Title')}</Form.Label>
+                                <Form.Control type="text" placeholder={getMessage('Title')} id="title"
+                                    value={pdfData.customer?.title} onChange={onChangeHandler}/>
+                                </div>
+                            </Col>
+                            {
+                                pdfData.customer?.salutation !== "Company" &&
+                                <Col xs={12}>
+                                <Row>
+                                    <Col xs={`${pdfData.customer?.salutation !== "Company" ? '6' : '12'}`} >
+                                    <div className="form-group">
+                                        <Form.Label>{getMessage('Firstname')}</Form.Label>
+                                        <Form.Control type="text" placeholder={getMessage('Firstname')}
+                                        id="firstName" value={pdfData.customer?.firstName} onChange={onChangeHandler}/>
+                                    </div>
+                                    </Col>
+                                    <Col xs={6} className={`${pdfData.customer?.salutation !== "Company" ? 'd-block' : 'd-none'}`}>
+                                    <div className="form-group">
+                                        <Form.Label>{getMessage('Surname')}</Form.Label>
+                                        <Form.Control type="text" placeholder={getMessage('Surname')}
+                                        id="Surname" value={pdfData.customer?.Surname} onChange={onChangeHandler} />
+                                    </div>
+                                    </Col>
+                                </Row>
+                                </Col>
+                            }
 
-                        <Col xs={12} className={`${pdfData.customer?.salutation === "Company" ? 'd-block' : 'd-none'}`}>
-                            <div className="form-group">
-                                <Form.Label htmlFor="company">{getMessage('The name of the company')}</Form.Label>
-                                <Form.Control id="company" placeholder={getMessage('Enter a company name')} type="text" value={pdfData.customer?.company} onChange={onChangeHandler} />
-                            </div>
-                        </Col>
+                            <Col xs={12} className={`${pdfData.customer?.salutation === "Company" ? 'd-block' : 'd-none'}`}>
+                                <div className="form-group">
+                                    <Form.Label htmlFor="company">{getMessage('The name of the company')}</Form.Label>
+                                    <Form.Control id="company" placeholder={getMessage('Enter a company name')} type="text" value={pdfData.customer?.company} onChange={onChangeHandler} />
+                                </div>
+                            </Col>
 
-                        </Col>
+                            </Col>
 
-                        {/* Contact */}
-                        <Col xs={12} md={6} xl={4}>
-                        <Col xs={12}>
-                            <div className="form-group">
-                            <h2>{getMessage('contact')}</h2>
-                            </div>
-                        </Col>
+                            {/* Contact */}
+                            <Col xs={12} md={6} xl={4}>
+                            <Col xs={12}>
+                                <div className="form-group">
+                                <h2>{getMessage('contact')}</h2>
+                                </div>
+                            </Col>
 
-                        <Col xs={12}>
-                            <div className="form-group">
-                            <Form.Label>{getMessage('Email')}</Form.Label>
-                            <Form.Control type="email" placeholder={getMessage('Email')}
-                            id="email" value={pdfData.customer?.email} onChange={onChangeHandler} />
-                            </div>
-                        </Col>
-                        <Col xs={12}>
-                            <div className="form-group">
-                            <Form.Label>{getMessage('Website')}</Form.Label>
-                            <InputGroup className="input-group-merge mb-3">
-                                <Form.Control placeholder={getMessage('Website')} />
-                                <InputGroup.Text className='bg-primary' id="website" value={pdfData.customer?.website} onChange={onChangeHandler} >
-                                    <FeatherIcon icon="external-link" size="1em" className='text-white' />
-                                </InputGroup.Text>
-                            </InputGroup>
-                            </div>
-                        </Col>
-                        <Col xs={12}>
-                            <div className="form-group">
-                            <Form.Label>{getMessage('Telephone')}</Form.Label>
-                            <InputGroup className="input-group-merge mb-3">
-                                <TelephoneInput />
-                                <InputGroup.Text className='bg-primary' id="telephone" value={pdfData.customer?.telephone} onChange={onChangeHandler} >
-                                    <FeatherIcon icon="phone" size="1em" className='text-white' />
-                                </InputGroup.Text>
-                            </InputGroup>
-                            </div>
-                        </Col>
-                        <Col xs={12}>
-                            <div className="form-group">
-                            <Form.Label>{getMessage('The mobile phone number')}</Form.Label>
-                            <InputGroup className="input-group-merge mb-3">
-                                <TelephoneInput />
-                                <InputGroup.Text className='bg-primary' id="mobileNumber" value={pdfData.customer?.mobileNumber} onChange={onChangeHandler} >
-                                    <FeatherIcon icon="phone" size="1em" className='text-white' />
-                                </InputGroup.Text>
-                            </InputGroup>
-                            </div>
-                        </Col>
-                        </Col>
+                            <Col xs={12}>
+                                <div className="form-group">
+                                <Form.Label>{getMessage('Email')}</Form.Label>
+                                <Form.Control type="email" placeholder={getMessage('Email')}
+                                id="email" value={pdfData.customer?.email} onChange={onChangeHandler} />
+                                </div>
+                            </Col>
+                            <Col xs={12}>
+                                <div className="form-group">
+                                <Form.Label>{getMessage('Website')}</Form.Label>
+                                <InputGroup className="input-group-merge mb-3">
+                                    <Form.Control placeholder={getMessage('Website')} />
+                                    <InputGroup.Text className='bg-primary' id="website" value={pdfData.customer?.website} onChange={onChangeHandler} >
+                                        <FeatherIcon icon="external-link" size="1em" className='text-white' />
+                                    </InputGroup.Text>
+                                </InputGroup>
+                                </div>
+                            </Col>
+                            <Col xs={12}>
+                                <div className="form-group">
+                                <Form.Label>{getMessage('Telephone')}</Form.Label>
+                                <InputGroup className="input-group-merge mb-3">
+                                    <TelephoneInput />
+                                    <InputGroup.Text className='bg-primary' id="telephone" value={pdfData.customer?.telephone} onChange={onChangeHandler} >
+                                        <FeatherIcon icon="phone" size="1em" className='text-white' />
+                                    </InputGroup.Text>
+                                </InputGroup>
+                                </div>
+                            </Col>
+                            <Col xs={12}>
+                                <div className="form-group">
+                                <Form.Label>{getMessage('The mobile phone number')}</Form.Label>
+                                <InputGroup className="input-group-merge mb-3">
+                                    <TelephoneInput />
+                                    <InputGroup.Text className='bg-primary' id="mobileNumber" value={pdfData.customer?.mobileNumber} onChange={onChangeHandler} >
+                                        <FeatherIcon icon="phone" size="1em" className='text-white' />
+                                    </InputGroup.Text>
+                                </InputGroup>
+                                </div>
+                            </Col>
+                            </Col>
 
-                        {/* Address */}
-                        <Col xs={12} md={6} xl={4}>
-                        <Col xs={12}>
-                            <div className="form-group">
-                            <h2>{getMessage('Address')}</h2>
-                            </div>
-                        </Col>
-                        
-                        <Col xs={12}>
-                            <div className="form-group">
-                            <Form.Label>{getMessage('Country')}</Form.Label>
-                            <Form.Control type="text" placeholder={getMessage('Country')} id="country"  value={pdfData.customer?.country} onChange={onChangeHandler} />
-                            </div>
-                        </Col>
-                        <Col xs={12}>
-                            <div className="form-group">
-                            <Form.Label>{getMessage('Postal')}</Form.Label>
-                            <Form.Control type="text" placeholder={getMessage('Postal')} id="postal" value={pdfData.customer?.postal} onChange={onChangeHandler}/>
-                            </div>
-                        </Col>
-                        <Col xs={12}>
-                            <div className="form-group">
-                            <Form.Label>{getMessage('City')}</Form.Label>
-                            <Form.Control type="text" placeholder={getMessage('City')} id="city" value={pdfData.customer?.city} onChange={onChangeHandler}/>
-                            </div>
-                        </Col>
-                        <Col xs={12}>
-                            <div className="form-group">
-                            <Form.Label>{getMessage('Street')}</Form.Label>
-                            <Form.Control type="text" placeholder={getMessage('Street')} id="street" value={pdfData.customer?.street} onChange={onChangeHandler} />
-                            </div>
-                        </Col>
-                        </Col>
+                            {/* Address */}
+                            <Col xs={12} md={6} xl={4}>
+                            <Col xs={12}>
+                                <div className="form-group">
+                                <h2>{getMessage('Address')}</h2>
+                                </div>
+                            </Col>
+                            
+                            <Col xs={12}>
+                                <div className="form-group">
+                                <Form.Label>{getMessage('Country')}</Form.Label>
+                                <Form.Control type="text" placeholder={getMessage('Country')} id="country"  value={pdfData.customer?.country} onChange={onChangeHandler} />
+                                </div>
+                            </Col>
+                            <Col xs={12}>
+                                <div className="form-group">
+                                <Form.Label>{getMessage('Postal')}</Form.Label>
+                                <Form.Control type="text" placeholder={getMessage('Postal')} id="postal" value={pdfData.customer?.postal} onChange={onChangeHandler}/>
+                                </div>
+                            </Col>
+                            <Col xs={12}>
+                                <div className="form-group">
+                                <Form.Label>{getMessage('City')}</Form.Label>
+                                <Form.Control type="text" placeholder={getMessage('City')} id="city" value={pdfData.customer?.city} onChange={onChangeHandler}/>
+                                </div>
+                            </Col>
+                            <Col xs={12}>
+                                <div className="form-group">
+                                <Form.Label>{getMessage('Street')}</Form.Label>
+                                <Form.Control type="text" placeholder={getMessage('Street')} id="street" value={pdfData.customer?.street} onChange={onChangeHandler} />
+                                </div>
+                            </Col>
+                            </Col>
 
-                        <Col xs={12} md={6} xl={4}>
-                        <Col xs={12}>
-                            <div className="form-group">
-                            <h2>{getMessage('Miscellaneous')}</h2>
-                            </div>
-                        </Col>
+                            <Col xs={12} md={6} xl={4}>
+                            <Col xs={12}>
+                                <div className="form-group">
+                                <h2>{getMessage('Miscellaneous')}</h2>
+                                </div>
+                            </Col>
 
-                        <Col xs={12}>
-                            <div className="form-group">
-                            <Form.Label>{getMessage('Comment')}</Form.Label>
-                            <Form.Control as={TextareaAutosize} placeholder={getMessage('Please write the comment')} minRows={3} id="comment" value={pdfData.customer?.comment} onChange={onChangeHandler} />
-                            </div>
-                        </Col>
+                            <Col xs={12}>
+                                <div className="form-group">
+                                <Form.Label>{getMessage('Comment')}</Form.Label>
+                                <Form.Control as={TextareaAutosize} placeholder={getMessage('Please write the comment')} minRows={3} id="comment" value={pdfData.customer?.comment} onChange={onChangeHandler} />
+                                </div>
+                            </Col>
 
-                        <Col xs={12}>
-                            <div className="form-group">
-                                <Form.Label htmlFor="vehicle-model-customer">{getMessage('VAT ID')}</Form.Label>
-                                <Form.Control as="select" id="vatId" value={pdfData.customer?.vatId} onChange={onChangeHandler}>
-                                    <option value="unknown">{getMessage('unknown')}</option>
-                                </Form.Control>
-                            </div>
-                        </Col>
-                        </Col>
-                    </Row>
-                    </form>
+                            <Col xs={12}>
+                                <div className="form-group">
+                                    <Form.Label htmlFor="vehicle-model-customer">{getMessage('VAT ID')}</Form.Label>
+                                    <Form.Control as="select" id="vatId" value={pdfData.customer?.vatId} onChange={onChangeHandler}>
+                                        <option value="unknown">{getMessage('unknown')}</option>
+                                    </Form.Control>
+                                </div>
+                            </Col>
+                            </Col>
+                        </Row>
                 </Col>
                 </Row>
             </Container>
