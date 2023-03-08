@@ -66,23 +66,25 @@ export default function ContactPerson() {
                             <Form.Control type="text" placeholder={getMessage('Title')}/>
                           </div>
                         </Col>
-
-                        <Col xs={12}>
-                          <Row>
-                            <Col xs={`${salutation !== "company" ? '6' : '12'}`} >
-                              <div className="form-group">
-                                <Form.Label>{getMessage('Firstname')}</Form.Label>
-                                <Form.Control type="text" placeholder={getMessage('Firstname')}/>
-                              </div>
-                            </Col>
-                            <Col xs={6} className={`${salutation !== "company" ? 'd-block' : 'd-none'}`}>
-                              <div className="form-group">
-                                <Form.Label>{getMessage('Surname')}</Form.Label>
-                                <Form.Control type="text" placeholder={getMessage('Surname')}/>
-                              </div>
-                            </Col>
-                          </Row>
-                        </Col>
+                        {
+                          salutation !== "company" &&
+                          <Col xs={12}>
+                            <Row>
+                              <Col xs={`${salutation !== "company" ? '6' : '12'}`} >
+                                <div className="form-group">
+                                  <Form.Label>{getMessage('Firstname')}</Form.Label>
+                                  <Form.Control type="text" placeholder={getMessage('Firstname')}/>
+                                </div>
+                              </Col>
+                              <Col xs={6} className={`${salutation !== "company" ? 'd-block' : 'd-none'}`}>
+                                <div className="form-group">
+                                  <Form.Label>{getMessage('Surname')}</Form.Label>
+                                  <Form.Control type="text" placeholder={getMessage('Surname')}/>
+                                </div>
+                              </Col>
+                            </Row>
+                          </Col>
+                        }
 
                         <Col xs={12} className={`${salutation === "company" ? 'd-block' : 'd-none'}`}>
                           <div className="form-group">
@@ -189,7 +191,7 @@ export default function ContactPerson() {
                         </Col>
 
 
-                        <Col xs={12}>
+                        {/* <Col xs={12}>
                           <div className="form-group">
                             <Form.Label>{getMessage('Versicherungsscheinnummer')}</Form.Label>
                             <Form.Control type="text" placeholder={getMessage('Please write the Versicherungsscheinnummer."')} />
@@ -202,7 +204,7 @@ export default function ContactPerson() {
                             <Form.Label>{getMessage('Schadennummer')}</Form.Label>
                             <Form.Control type="text" placeholder={getMessage('Please write the Schadennummer.')} />
                           </div>
-                        </Col>
+                        </Col> */}
 
                         <Col xs={12}>
                           <div className="form-group">

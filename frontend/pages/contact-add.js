@@ -9,6 +9,7 @@ import { getMessage } from '../helpers/lang';
 
 export default function ContactAdd() {
   const [salutation, setSalutation] = useState('');
+  const [contactType, setContactType] = useState('');
 
   return (
     <div className="main-content">
@@ -26,6 +27,23 @@ export default function ContactAdd() {
                     </div>
                   </Col>
 
+                  <Col xs={12}>
+                    <div className="form-group">
+                      <Form.Label>{getMessage('Contact type')}</Form.Label>
+                      <Select
+                          className="mb-4"
+                          options={[
+                            { value: 'contact', label: getMessage('Contact') },
+                            { value: 'workshop', label: getMessage('Workshop') },
+                            { value: 'inssurance', label: getMessage('Inssurance') },
+                            { value: 'lawyer', label: getMessage('Lawyer') },
+                          ]}
+                          placeholder={getMessage('Choose the contact type.')}
+                          value={contactType}
+                          onChange={(e) => {setContactType(e.value)}}
+                        />
+                    </div>
+                  </Col>
                   <Col xs={12}>
                     <div className="form-group">
                       <Form.Label>{getMessage('Salutation')}</Form.Label>
@@ -48,23 +66,25 @@ export default function ContactAdd() {
                       <Form.Control type="text" placeholder={getMessage('Title')} />
                     </div>
                   </Col>
-
-                  <Col xs={12}>
-                    <Row>
-                      <Col xs={`${salutation !== "company" ? '6' : '12'}`} >
-                        <div className="form-group">
-                          <Form.Label>{getMessage('Firstname')}</Form.Label>
-                          <Form.Control type="text" placeholder={getMessage('Firstname')}/>
-                        </div>
-                      </Col>
-                      <Col xs={6} className={`${salutation !== "company" ? 'd-block' : 'd-none'}`}>
-                        <div className="form-group">
-                          <Form.Label>{getMessage('Surname')}</Form.Label>
-                          <Form.Control type="text" placeholder={getMessage('Surname')}/>
-                        </div>
-                      </Col>
-                    </Row>
-                  </Col>
+                  {
+                    salutation !== "company" &&
+                    <Col xs={12}>
+                      <Row>
+                        <Col xs={`${salutation !== "company" ? '6' : '12'}`} >
+                          <div className="form-group">
+                            <Form.Label>{getMessage('Firstname')}</Form.Label>
+                            <Form.Control type="text" placeholder={getMessage('Firstname')}/>
+                          </div>
+                        </Col>
+                        <Col xs={6} className={`${salutation !== "company" ? 'd-block' : 'd-none'}`}>
+                          <div className="form-group">
+                            <Form.Label>{getMessage('Surname')}</Form.Label>
+                            <Form.Control type="text" placeholder={getMessage('Surname')}/>
+                          </div>
+                        </Col>
+                      </Row>
+                    </Col>
+                  }
 
                   <Col xs={12} className={`${salutation === "company" ? 'd-block' : 'd-none'}`}>
                     <div className="form-group">

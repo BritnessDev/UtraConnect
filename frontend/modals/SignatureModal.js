@@ -1,92 +1,43 @@
-import React, { useRef } from 'react';
-import { Row, Col, Button } from 'react-bootstrap';
+import React, { useRef, useState } from 'react';
+import { Row, Col, Button, Card, CloseButton, Form, InputGroup, ListGroup, Modal } from 'react-bootstrap';
 import { getMessage } from '../helpers/lang';
+import SignatureCanvas from 'react-signature-canvas'
 
-function SignatureModal() {
+function SignatureModal({visible, onDismiss, setPdf, ...props}) {
   const canvasRef = useRef(null);
-
-  function handleMouseDown(event) {
-    event.preventDefault();
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    ctx.beginPath();
-    ctx.moveTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
-    canvas.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
-  }
-  
-  function handleMouseMove(event) {
-    event.preventDefault();
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    ctx.lineTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
-    ctx.stroke();
-  }
-  
-  function handleMouseUp(event) {
-    event.preventDefault();
-    const canvas = canvasRef.current;
-    canvas.removeEventListener('mousemove', handleMouseMove);
-    document.removeEventListener('mouseup', handleMouseUp);
-  }
-  
-  function handleTouchStart(event) {
-    event.preventDefault();
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    ctx.beginPath();
-    ctx.moveTo(event.touches[0].clientX - canvas.offsetLeft, event.touches[0].clientY - canvas.offsetTop);
-    canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
-    document.addEventListener('touchend', handleTouchEnd, { passive: false });
-  }
-  
-  function handleTouchMove(event) {
-    event.preventDefault();
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    ctx.lineTo(event.touches[0].clientX - canvas.offsetLeft, event.touches[0].clientY - canvas.offsetTop);
-    ctx.stroke();
-  }
-  
-  function handleTouchEnd(event) {
-    event.preventDefault();
-    const canvas = canvasRef.current;
-    canvas.removeEventListener('touchmove', handleTouchMove);
-    document.removeEventListener('touchend', handleTouchEnd);
-  }
+  const [sign, setSign] = useState(null);
 
   function handleClear() {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    canvasRef.current.clear();
+    setSign(null);
   }
 
   function handleSave() {
-    const canvas = canvasRef.current;
-    const image = canvas.toDataURL('image/png');
-    debugger
-    // do something with the image data, e.g. send it to the server
+    setSign(canvasRef.current.toDataURL('image/png'));
   }
 
+  
   return (
-    <Row className='mt-4 align-items-end'>
-      <Col>
-      <canvas
-        ref={canvasRef}
-        width={300}
-        height={200}
-        className="border border-secondary"
-        onMouseDown={handleMouseDown}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      />
-        <div className='mt-3'>
-          <Button variant="white" onClick={handleClear}>{getMessage('Clear')}</Button>
-          <Button variant="white" onClick={handleSave} className="ms-3">{getMessage('Save')}</Button>
-        </div>
-      </Col>
-    </Row>
+    <Modal show={visible} onHide={onDismiss} centered {...props}>
+      <Card className="modal-card">
+        <Card.Header>
+          <h4 className="card-header-title">{getMessage("Sign")}</h4>
+          <CloseButton onClick={onDismiss} />
+        </Card.Header>
+        <Card.Body>
+          <Row className='align-items-end'>
+          <Col className='d-flex flex-column justify-content-center'>
+          <SignatureCanvas penColor='black' canvasProps={{width: 500, height: 200, className: 'sigCanvas border border-secondary'}} ref={canvasRef}/>
+            <div className='mt-3 d-flex justify-content-center'>
+              <Button variant="white" onClick={handleClear}>{getMessage('Clear')}</Button>
+              <Button variant="white" onClick={handleSave} className="ms-3">{getMessage('Save')}</Button>
+            </div>
+          </Col>
+        </Row>
+        </Card.Body>
+      </Card>
+    </Modal>
+    
   );
 }
 

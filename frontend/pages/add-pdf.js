@@ -9,7 +9,9 @@ import WorkshopDataPart from "./workshop-data-part";
 import BankDataPart from "./bank-data-part";
 import LessorDataPart from "./lessor-data-part";
 import SignatureModal from "../modals/SignatureModal";
-
+import Address2DataPart from "./address2-data-part";
+import { ModalContacts } from "../modals";
+import { SignatureDataPart } from "./signature-data-part";
 import {
     Col,
     Container,
@@ -33,6 +35,8 @@ const AddPdf = () => {
         bank: {},
         lessor: {}
     });
+    const [addContactModal, setAddContactModal] = useState(false);
+    const [pdf, setPdf] = useState('');
     
     useEffect(() => {
         const response = pdfData;
@@ -61,23 +65,37 @@ const AddPdf = () => {
                                 </Accordion.Body>
                                 </Accordion.Item>
 
+                                {
+                                    pdfData.general?.addressDiff &&
+                                    <Accordion.Item eventKey="1">
+                                    <Accordion.Header>{getMessage('AddressDiff')}</Accordion.Header>
+                                    <Accordion.Body>
+                                        <Address2DataPart pdfData={pdfData} setPdfData={setPdfData} setAddContactModal={setAddContactModal}/>
+                                    </Accordion.Body>
+                                    </Accordion.Item>
+                                }
+
                                 <Accordion.Item eventKey="2">
                                 <Accordion.Header>{getMessage('Data of our customer')}</Accordion.Header>
                                 <Accordion.Body>
-                                    <CustomerDataPart pdfData={pdfData} setPdfData={setPdfData}/>
+                                    <CustomerDataPart pdfData={pdfData} setPdfData={setPdfData} setAddContactModal={setAddContactModal}/>
                                 </Accordion.Body>
                                 </Accordion.Item>
 
-                                <Accordion.Item eventKey="3">
-                                <Accordion.Header>{getMessage('Insurance Company Data')}</Accordion.Header>
-                                <Accordion.Body>
-                                    <InsuranceDataPart pdfData={pdfData} setPdfData={setPdfData}/>
-                                </Accordion.Body>
-                                </Accordion.Item>
+                                {
+                                    pdfData.general?.knowOtherInsurer &&
+                                    <Accordion.Item eventKey="3">
+                                    <Accordion.Header>{getMessage('Insurance Company Data')}</Accordion.Header>
+                                    <Accordion.Body>
+                                        <InsuranceDataPart pdfData={pdfData} setPdfData={setPdfData} setAddContactModal={setAddContactModal}/>
+                                    </Accordion.Body>
+                                    </Accordion.Item>
+                                }
+
                                 <Accordion.Item eventKey="4">
                                 <Accordion.Header>{getMessage('Accident Opponent Data')}</Accordion.Header>
                                 <Accordion.Body>
-                                    <OpportunityDataPart pdfData={pdfData} setPdfData={setPdfData}/>
+                                    <OpportunityDataPart pdfData={pdfData} setPdfData={setPdfData} setAddContactModal={setAddContactModal}/>
                                 </Accordion.Body>
                                 </Accordion.Item>
                                 {
@@ -86,7 +104,7 @@ const AddPdf = () => {
                                         <Accordion.Item eventKey="5">
                                         <Accordion.Header>{getMessage('Lawyer Data')}</Accordion.Header>
                                         <Accordion.Body>
-                                            <LawyerDataPart pdfData={pdfData} setPdfData={setPdfData}/>
+                                            <LawyerDataPart pdfData={pdfData} setPdfData={setPdfData} setAddContactModal={setAddContactModal}/>
                                         </Accordion.Body>
                                         </Accordion.Item>
                                     </Fade>
@@ -97,7 +115,7 @@ const AddPdf = () => {
                                         <Accordion.Item eventKey="6">
                                         <Accordion.Header>{getMessage('Repair Workshop Data')}</Accordion.Header>
                                         <Accordion.Body>
-                                            <WorkshopDataPart pdfData={pdfData} setPdfData={setPdfData} />
+                                            <WorkshopDataPart pdfData={pdfData} setPdfData={setPdfData} setAddContactModal={setAddContactModal} />
                                         </Accordion.Body>
                                         </Accordion.Item>
                                     </Fade>
@@ -108,7 +126,7 @@ const AddPdf = () => {
                                         <Accordion.Item eventKey="7">
                                             <Accordion.Header>{getMessage('Bank Data')}</Accordion.Header>
                                             <Accordion.Body>
-                                                <BankDataPart pdfData={pdfData} setPdfData={setPdfData} />
+                                                <BankDataPart pdfData={pdfData} setPdfData={setPdfData} setAddContactModal={setAddContactModal} />
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Fade>
@@ -119,7 +137,7 @@ const AddPdf = () => {
                                         <Accordion.Item eventKey="7">
                                             <Accordion.Header>{getMessage('Leased Data')}</Accordion.Header>
                                             <Accordion.Body>
-                                                <LessorDataPart pdfData={pdfData} setPdfData={setPdfData} />
+                                                <LessorDataPart pdfData={pdfData} setPdfData={setPdfData} setAddContactModal={setAddContactModal} />
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Fade>
@@ -127,14 +145,15 @@ const AddPdf = () => {
                                 <Accordion.Item eventKey="8">
                                 <Accordion.Header>{getMessage('Summary')}</Accordion.Header>
                                 <Accordion.Body>
-                                    {getMessage('Summary Data')}
-                                    <SignatureModal/>
+                                    {/* <SignatureModal/> */}
+                                    <SignatureDataPart pdf={pdf} setPdf={setPdf} />
                                 </Accordion.Body>
                                 </Accordion.Item>
                             </Accordion>
                         </Form>
                     </Col>
                 </Row>
+                <ModalContacts visible={addContactModal} onDismiss={() => setAddContactModal(false)}/>
             </Container>
         </div>
     );
