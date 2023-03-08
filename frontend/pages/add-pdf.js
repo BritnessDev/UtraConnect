@@ -11,6 +11,7 @@ import LessorDataPart from "./lessor-data-part";
 import SignatureModal from "../modals/SignatureModal";
 import Address2DataPart from "./address2-data-part";
 import { ModalContacts } from "../modals";
+import { SignatureDataPart } from "./signature-data-part";
 import {
     Col,
     Container,
@@ -35,6 +36,7 @@ const AddPdf = () => {
         lessor: {}
     });
     const [addContactModal, setAddContactModal] = useState(false);
+    const [pdf, setPdf] = useState('');
     
     useEffect(() => {
         const response = pdfData;
@@ -143,8 +145,8 @@ const AddPdf = () => {
                                 <Accordion.Item eventKey="8">
                                 <Accordion.Header>{getMessage('Summary')}</Accordion.Header>
                                 <Accordion.Body>
-                                    {getMessage('Summary Data')}
-                                    <SignatureModal/>
+                                    {/* <SignatureModal/> */}
+                                    <SignatureDataPart pdf={pdf} setPdf={setPdf} />
                                 </Accordion.Body>
                                 </Accordion.Item>
                             </Accordion>

@@ -194,9 +194,9 @@
       "Repair Workshop Data": "Repair Workshop Data",
       "Bank Data": "Bank Data",
       "Leased Data": "Leased Data",
-      "": "",
-      "": "",
-      "": ""
+      "Preview": "Preview",
+      "Generate": "Generate",
+      "Sign": "Sign"
 
 
       
@@ -396,9 +396,9 @@
       "Repair Workshop Data": "Daten der Reparaturwerkstatt",
       "Bank Data": "Bankdaten",
       "Leased Data": "Gemietete Daten",
-      "": "",
-      "": "",
-      "": "",
+      "Preview": "Vorschau",
+      "Generate": "Generieren",
+      "Sign": "unterschrift",
       "": "",
       "": "",
       "": "",
