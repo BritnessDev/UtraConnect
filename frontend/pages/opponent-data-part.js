@@ -34,7 +34,6 @@ export default function OpportunityDataPart ({pdfData, setPdfData, setAddContact
             <Container fluid>
                 <Row className="justify-content-center">
                 <Col xs={12} lg={12} xl={12}>
-                    <form>
                     <Row className='justify-content-end'>
                     <LoadButton setAddContactModal={setAddContactModal}/>
                     </Row>
@@ -195,7 +194,6 @@ export default function OpportunityDataPart ({pdfData, setPdfData, setAddContact
                             </div>
                         </Col>
                     </Row>
-                    </form>
                 </Col>
                 </Row>
             </Container>

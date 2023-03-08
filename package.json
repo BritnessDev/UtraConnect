@@ -23,6 +23,7 @@
         "language-icons": "^0.3.0",
         "next-i18next": "^13.2.1",
         "react-phone-input-2": "^2.15.1",
+        "react-signature-canvas": "^1.0.6",
         "react-toastify": "^9.1.1"
     }
 }
