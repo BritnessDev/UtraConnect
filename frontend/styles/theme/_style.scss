@@ -30,8 +30,30 @@
     .language-switcher img {
         width: 15px;
     }
+
+    .canvas-container {
+        margin: 0 auto;
+        width: 300px !important;
+        height: 100px !important;
+    }
+    
+    .canvas-content {
+        width: 300px !important;
+        height: 100px !important;
+    }
 }
 
 .sigCanvas {
     touch-action: none;
+}
+
+.canvas-container {
+    margin: 0 auto;
+    width: 500px;
+    height: 200px;
+}
+
+.canvas-content {
+    width: 500px;
+    height: 200px;
 }
