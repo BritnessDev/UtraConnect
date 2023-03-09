@@ -80,8 +80,8 @@ export default function GeneralDataPart ({pdfData, setPdfData}) {
                         <Form.Label htmlFor="vehicle-model-customer">{getMessage('VAT ID')}</Form.Label>
                         <Form.Control as="select" id="vatId" value={pdfData.general?.vatId} onChange={onChangeHandler}>
                             <option value="unknown">{getMessage('unknown')}</option>
-                            <option value={true}>{getMessage('yes')}</option>
-                            <option value={false}>{getMessage('no')}</option>
+                            <option value={true}>{getMessage('Yes')}</option>
+                            <option value={false}>{getMessage('No')}</option>
                         </Form.Control>
                         </div>
                     </Col>
