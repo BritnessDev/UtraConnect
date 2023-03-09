@@ -15,7 +15,6 @@ function SignatureModal({visible, onDismiss, setPdf, ...props}) {
   function handleSave() {
     setSign(canvasRef.current.toDataURL('image/png'));
   }
-
   
   return (
     <Modal show={visible} onHide={onDismiss} centered {...props}>
@@ -27,10 +26,16 @@ function SignatureModal({visible, onDismiss, setPdf, ...props}) {
         <Card.Body>
           <Row className='align-items-end'>
           <Col className='d-flex flex-column justify-content-center'>
-          <SignatureCanvas penColor='black' canvasProps={{width: 500, height: 200, className: 'sigCanvas border border-secondary'}} ref={canvasRef}/>
+          <div className={`d-flex flex-column justify-content-center canvas-container`}>
+            <SignatureCanvas 
+              penColor='black' 
+              canvasProps={{className: `sigCanvas border border-primary canvas-content`,}}
+              ref={canvasRef}
+            />
+          </div>
             <div className='mt-3 d-flex justify-content-center'>
-              <Button variant="white" onClick={handleClear}>{getMessage('Clear')}</Button>
-              <Button variant="white" onClick={handleSave} className="ms-3">{getMessage('Save')}</Button>
+              <Button variant="danger" onClick={handleClear}>{getMessage('Clear')}</Button>
+              <Button variant="info" onClick={handleSave} className="ms-3">{getMessage('Save')}</Button>
             </div>
           </Col>
         </Row>

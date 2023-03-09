@@ -5,7 +5,7 @@ import SignatureModal from "../modals/SignatureModal"
 
 export const SignatureDataPart = ({pdf, setPdf}) => {
     const onClickHandler = (e) => {
-        setSelectPdf(e.target?.id)
+        setSelectPdf(e.target?.id);
     }
     const PdfTemplate = ({id, name}) => (
         <>
@@ -16,7 +16,7 @@ export const SignatureDataPart = ({pdf, setPdf}) => {
     const CheckIcon = ({id}) => (
         <img src="/img/icons/check.png" alt="not check.png" style={{left: "30px", top: "60px"}} className={`${selectPdf === id ? "position-absolute d-flex" : "position-absolute d-none"}`}></img>
     )
-    const [selectPdf, setSelectPdf] = useState(0);
+    const [selectPdf, setSelectPdf] = useState("0");
     const [showModal, setShowModal] = useState(false);
     return (
         <div className="main-content">

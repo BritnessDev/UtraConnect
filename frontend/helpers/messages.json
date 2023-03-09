@@ -196,8 +196,9 @@
       "Leased Data": "Leased Data",
       "Preview": "Preview",
       "Generate": "Generate",
-      "Sign": "Sign"
-
+      "Sign": "Sign",
+      "Yes": "Yes",
+      "No": "No"
 
       
     },
@@ -399,8 +400,8 @@
       "Preview": "Vorschau",
       "Generate": "Generieren",
       "Sign": "unterschrift",
-      "": "",
-      "": "",
+      "Yes": "Ja",
+      "No": "NEIN",
       "": "",
       "": "",
       "": "",

@@ -65,22 +65,22 @@ const AddPdf = () => {
                                 </Accordion.Body>
                                 </Accordion.Item>
 
+                                <Accordion.Item eventKey="1">
+                                <Accordion.Header>{getMessage('Data of our customer')}</Accordion.Header>
+                                <Accordion.Body>
+                                    <CustomerDataPart pdfData={pdfData} setPdfData={setPdfData} setAddContactModal={setAddContactModal}/>
+                                </Accordion.Body>
+                                </Accordion.Item>
+
                                 {
                                     pdfData.general?.addressDiff &&
-                                    <Accordion.Item eventKey="1">
+                                    <Accordion.Item eventKey="2">
                                     <Accordion.Header>{getMessage('AddressDiff')}</Accordion.Header>
                                     <Accordion.Body>
                                         <Address2DataPart pdfData={pdfData} setPdfData={setPdfData} setAddContactModal={setAddContactModal}/>
                                     </Accordion.Body>
                                     </Accordion.Item>
                                 }
-
-                                <Accordion.Item eventKey="2">
-                                <Accordion.Header>{getMessage('Data of our customer')}</Accordion.Header>
-                                <Accordion.Body>
-                                    <CustomerDataPart pdfData={pdfData} setPdfData={setPdfData} setAddContactModal={setAddContactModal}/>
-                                </Accordion.Body>
-                                </Accordion.Item>
 
                                 {
                                     pdfData.general?.knowOtherInsurer &&
